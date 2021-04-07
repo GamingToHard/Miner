@@ -20,14 +20,14 @@ public class Miner extends JavaPlugin {
         //getCommand("startminer").setExecutor(BOT);
 
 
-        getServer().getConsoleSender().sendMessage(ChatColor.RED + "Hello, Plugin enabled");
+        getServer().getConsoleSender().sendMessage(ChatColor.DARK_RED + "MinerBot Enabled!");
 
     }
 
     @Override
     public void onDisable(){
 
-        getServer().getConsoleSender().sendMessage(ChatColor.RED + "Goodbye");
+        getServer().getConsoleSender().sendMessage(ChatColor.DARK_RED + "MinerBot disabled!");
 
     }
 
