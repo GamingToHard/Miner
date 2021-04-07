@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="Miner:jar">
+    <output-path>$USER_HOME$/Desktop/MCServer/plugins</output-path>
+    <root id="archive" name="Miner.jar">
+      <element id="module-output" name="Miner" />
+      <element id="extracted-dir" path="$USER_HOME$/Downloads/spigot-api-1.16.5.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

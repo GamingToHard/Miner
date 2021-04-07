@@ -1,0 +1,12 @@
+name: Miner
+version: 1.0
+main: com.remnant.Miner.Miner
+api-version: 1.16
+commands:
+  MinerChest:
+    description: Creates a chest for the minerbot to use
+    usage: /<command>
+
+  StartBot:
+    description: Starts the Bot based on the chest location
+    usage: /<command>
