@@ -1,11 +1,9 @@
 package com.remnant.Miner.Commands;
 
-
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
-import org.bukkit.block.Block;
 import org.bukkit.block.Chest;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -14,17 +12,20 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
-
+//Created a global variable to better access the location of chest created by "MinerChest"
 class ChestLocation{
     public static int x;
     public static int y;
     public static int z;
 }
+
+//Created a global variable to better move the "Bot" around
 class BotLocation{
     public static int x;
     public static int y;
     public static int z;
 }
+
 
 public class MinerCommands implements CommandExecutor {
 
@@ -32,11 +33,15 @@ public class MinerCommands implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender Sender, Command cmd, String label, String[] args) {
 
+
+        //Check to make sure its a player or console
         if (!(Sender instanceof Player)) {
             return true;
         }
+
         Player player = (Player) Sender;
 
+        //Creates a chest that the bot and chest can reference for mining
         if (cmd.getName().equalsIgnoreCase("MinerChest")) {
 
             ChestLocation.x = player.getLocation().getBlockX();
@@ -47,7 +52,7 @@ public class MinerCommands implements CommandExecutor {
             BotLocation.y = player.getLocation().getBlockY();
             BotLocation.z = player.getLocation().getBlockZ();
 
-
+            //Helper function for the location of the chest
             World W = player.getWorld();
 
             Location location = new Location(W, ChestLocation.x, ChestLocation.y, ChestLocation.z);
@@ -57,8 +62,11 @@ public class MinerCommands implements CommandExecutor {
             return true;
         }
 
+        //Starts the bot and checks the blocks it comes in contact with
+        // (and puts one block or item in the chest) and then replaces them with air.
         if (cmd.getName().equalsIgnoreCase("StartBot")) {
 
+            //Number of blocks to mine, will be replaced with Userinput or GUI input
             int Blocks = 50;
 
             World W = player.getWorld();
@@ -239,6 +247,7 @@ public class MinerCommands implements CommandExecutor {
 
                 }
 
+                //Reset the bot location back to the chest to move in different directions
                 BotLocation.x = ChestLocation.x;
                 BotLocation.y = ChestLocation.y;
 
